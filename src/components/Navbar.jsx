@@ -59,7 +59,7 @@ const Navbar = () => {
           </div>
         <div className="hidden lg:flex items-center justify-start">
         <img className="w-[20%] h-[20%] rounded-xl px-4" src={logo} alt="" />
-        <a className="btn btn-ghost text-xl">Diving Story</a>
+        <a className=" text-2xl">Diving Story<small className="flex items-center">Eco Adventures</small></a>
         </div>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -69,7 +69,7 @@ const Navbar = () => {
           {
             user && user?.email ?<div className="flex items-center gap-2 justify-end" title={user.displayName}>
             
-            <img className="w-[30%] h-[10%] rounded-xl border-1 border-cyan-500 btn-outline" src={user.photoURL} alt="" />
+            <img className="w-[20%] lg:w-[30%] h-[10%] rounded-xl border-1 border-cyan-500 btn-outline" src={user.photoURL} alt="" />
       
               
                <button onClick={userLogOut} className="btn btn-outline">Logout</button>
