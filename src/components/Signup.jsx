@@ -3,8 +3,8 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
-  const { createUser, setUser } = useContext(AuthContext);
-  const navigate = useNavigate()
+  const { createUser, setUser, manageUpdateProfile } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleSignup = (e) => {
     e.preventDefault();
@@ -12,14 +12,17 @@ const Signup = () => {
     const email = e.target.email.value;
     const photo = e.target.photo.value;
     const password = e.target.password.value;
-    console.log({ name, email, photo, password });
+  
 
     createUser(email, password)
       .then((result) => {
         const user = result.user;
         alert(user, "user created successfully");
+
+        manageUpdateProfile(name, photo);
         setUser(user);
-        navigate("/")
+        
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);
@@ -97,4 +100,4 @@ const Signup = () => {
 };
 
 export default Signup;
-import React from "react";
+

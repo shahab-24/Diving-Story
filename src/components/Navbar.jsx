@@ -1,7 +1,11 @@
-import { NavLink } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 import logo from "../assets/logo.png"
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Navbar = () => {
+  const {user,userLogOut} = useContext(AuthContext)
+  console.log(user)
   const links = (
     <>
       <li>
@@ -14,7 +18,7 @@ const Navbar = () => {
         <NavLink to="/userProfile">User Profile</NavLink>
       </li>
       <li>
-        <NavLink to="/register">Register</NavLink>
+        <NavLink to="/signup">Sign UP</NavLink>
       </li>
       <li>
         <NavLink to="/about">About</NavLink>
@@ -26,7 +30,7 @@ const Navbar = () => {
   );
 
   return (
-    <div>
+    <div className="">
       <div className="navbar bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
@@ -61,8 +65,17 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
-        <div className="navbar-end">
-          <NavLink to='/login' className="btn btn-outline">Login</NavLink>
+        <div className="">
+          {
+            user && user?.email ?<div className="flex items-center gap-2 justify-end" title={user.displayName}>
+            
+            <img className="w-[30%] h-[10%] rounded-xl border-1 border-cyan-500 btn-outline" src={user.photoURL} alt="" />
+      
+              
+               <button onClick={userLogOut} className="btn btn-outline">Logout</button>
+            </div> : <NavLink to='/login' className="btn btn-outline">Login</NavLink>
+          }
+          
         </div>
       </div>
     </div>
