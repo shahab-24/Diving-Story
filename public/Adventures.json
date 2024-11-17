@@ -1,0 +1,223 @@
+[
+  {
+    "id": 1,
+    "title": "Himalayan Mountain Trek",
+    "image": "https://i.ibb.co.com/VHF2ZbT/himalay-trek.jpg",
+    "category": "Mountain Treks",
+    "shortDescription": "Experience the serenity and challenge of trekking the Himalayan ranges.",
+    "adventureCost": "$600",
+    "bookingAvailability": true,
+    "location": "Nepal",
+    "duration": "7 days",
+    "adventureLevel": "Intermediate",
+    "includedItems": ["Guide", "Meals", "Tents", "First Aid Kit"],
+    "ecoFriendlyFeatures": ["Solar-powered Camps", "Biodegradable Supplies"],
+    "maxGroupSize": 10,
+    "specialInstructions": [
+      "Carry warm clothing",
+      "Avoid littering",
+      "Bring trekking poles"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Ocean Dive in the Maldives",
+    "image": "https://i.ibb.co.com/6R51DRP/marldive-water-2.jpg",
+    "category": "Ocean Dives",
+    "shortDescription": "Dive into the crystal-clear waters of the Maldives and explore vibrant coral reefs.",
+    "adventureCost": "$800",
+    "bookingAvailability": true,
+    "location": "Maldives",
+    "duration": "5 days",
+    "adventureLevel": "Advanced",
+    "includedItems": ["Diving Gear", "Instructor", "Safety Equipment"],
+    "ecoFriendlyFeatures": ["Reef-safe Sunscreen", "Marine Life Conservation"],
+    "maxGroupSize": 8,
+    "specialInstructions": [
+      "Must have prior diving experience",
+      "No single-use plastics allowed"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Safari in Serengeti",
+    "image": "https://i.ibb.co.com/L87LK0f/group-zebras-africa.jpg",
+    "category": "Wildlife Safaris",
+    "shortDescription": "Witness the Great Migration and African wildlife up close.",
+    "adventureCost": "$1000",
+    "bookingAvailability": true,
+    "location": "Tanzania",
+    "duration": "6 days",
+    "adventureLevel": "Beginner",
+    "includedItems": ["Safari Vehicle", "Guide", "Lodging"],
+    "ecoFriendlyFeatures": ["Solar-Powered Vehicles", "Plastic-Free Lodging"],
+    "maxGroupSize": 12,
+    "specialInstructions": [
+      "Wear neutral colors",
+      "Follow park rules",
+      "Bring binoculars"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Amazon Forest Expedition",
+    "image": "https://i.ibb.co.com/cyrjtyn/hiker-climbing-tree-trunk.jpg",
+    "category": "Forest Expeditions",
+    "shortDescription": "Explore the world's largest rainforest and its diverse ecosystem.",
+    "adventureCost": "$700",
+    "bookingAvailability": false,
+    "location": "Brazil",
+    "duration": "10 days",
+    "adventureLevel": "Expert",
+    "includedItems": ["Jungle Guide", "Meals", "Safety Equipment"],
+    "ecoFriendlyFeatures": ["Reusable Bottles", "Eco-Friendly Lodging"],
+    "maxGroupSize": 6,
+    "specialInstructions": [
+      "Vaccinations required",
+      "Carry insect repellent",
+      "Respect wildlife"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Camping in Yosemite",
+    "image": "https://i.ibb.co.com/Q95vM5T/friensds-enjoying-their-winter-camping.jpg",
+    "category": "Camping Retreats",
+    "shortDescription": "Enjoy a peaceful retreat in the natural beauty of Yosemite National Park.",
+    "adventureCost": "$400",
+    "bookingAvailability": true,
+    "location": "USA",
+    "duration": "3 days",
+    "adventureLevel": "Beginner",
+    "includedItems": ["Tent", "Campfire Equipment", "Park Permit"],
+    "ecoFriendlyFeatures": ["Leave-No-Trace Principles", "Compost Toilets"],
+    "maxGroupSize": 15,
+    "specialInstructions": ["No loud noises", "Keep food secured from wildlife"]
+  },
+  {
+    "id": 6,
+    "title": "Nile River Adventure",
+    "image": "https://i.ibb.co.com/sH2vY6L/cem-sagisman-b-LS61-Fd-P8-E-unsplash.jpg",
+    "category": "River Adventures",
+    "shortDescription": "Sail through the Nile River and experience ancient Egyptian wonders.",
+    "adventureCost": "$900",
+    "bookingAvailability": true,
+    "location": "Egypt",
+    "duration": "4 days",
+    "adventureLevel": "Intermediate",
+    "includedItems": ["Boat", "Meals", "Tour Guide"],
+    "ecoFriendlyFeatures": ["Solar-powered Boats", "Reusable Utensils"],
+    "maxGroupSize": 20,
+    "specialInstructions": [
+      "Avoid touching artifacts",
+      "Carry sunscreen",
+      "Respect local culture"
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Mangrove Kayaking Adventure",
+    "image": "https://i.ibb.co.com/sRG6c88/the-tampa-bay-estuary-program-KUU87l4-KSo-E-unsplash.jpg",
+    "category": "Mangrove Forest Expeditions",
+    "shortDescription": "Paddle through serene mangrove forests and explore diverse ecosystems.",
+    "adventureCost": "$300",
+    "bookingAvailability": true,
+    "location": "Thailand",
+    "duration": "1 day",
+    "adventureLevel": "Beginner",
+    "includedItems": ["Kayak", "Life Jacket", "Snack Pack"],
+    "ecoFriendlyFeatures": ["Non-Invasive Exploration", "Plastic-Free Snacks"],
+    "maxGroupSize": 10,
+    "specialInstructions": [
+      "Avoid disturbing wildlife",
+      "Wear comfortable clothing"
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Desert Safari in Dubai",
+    "image": "https://i.ibb.co.com/fFgRN2m/sajimon-sahadevan-Vaqwged-Q9-XM-unsplash.jpg",
+    "category": "Desert Exploration",
+    "shortDescription": "Enjoy dune bashing, camel rides, and desert camping in Dubai.",
+    "adventureCost": "$500",
+    "bookingAvailability": true,
+    "location": "Dubai",
+    "duration": "2 days",
+    "adventureLevel": "Beginner",
+    "includedItems": ["Camel Ride", "Meals", "Tent"],
+    "ecoFriendlyFeatures": ["Eco-Friendly Vehicles", "Reusable Water Bottles"],
+    "maxGroupSize": 15,
+    "specialInstructions": [
+      "Avoid littering",
+      "Bring sunglasses",
+      "Stay hydrated"
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Alaska Glacial Cruise",
+    "image": "https://i.ibb.co.com/KryYVyh/dylan-taylor-N4-Ue-Hv-Gb-PMA-unsplash.jpg",
+    "category": "River Adventures",
+    "shortDescription": "Cruise through Alaskan glaciers and witness breathtaking landscapes.",
+    "adventureCost": "$1200",
+    "bookingAvailability": false,
+    "location": "USA",
+    "duration": "5 days",
+    "adventureLevel": "Advanced",
+    "includedItems": ["Cruise Ship", "Meals", "Tour Guide"],
+    "ecoFriendlyFeatures": ["Low-Emission Ships", "Waste Recycling"],
+    "maxGroupSize": 30,
+    "specialInstructions": ["Wear thermal clothing", "Avoid feeding wildlife"]
+  },
+  {
+    "id": 10,
+    "title": "Great Barrier Reef Dive",
+    "image": "https://i.ibb.co.com/ccL8Pns/neom-WLe-WJW-Wne-E-unsplash.jpg",
+    "category": "Ocean Dives",
+    "shortDescription": "Explore the vibrant underwater world of the Great Barrier Reef.",
+    "adventureCost": "$1000",
+    "bookingAvailability": true,
+    "location": "Australia",
+    "duration": "4 days",
+    "adventureLevel": "Advanced",
+    "includedItems": ["Diving Gear", "Boat", "Instructor"],
+    "ecoFriendlyFeatures": ["Reef Conservation Fees", "Eco-Friendly Boats"],
+    "maxGroupSize": 12,
+    "specialInstructions": ["No touching corals", "Use reef-safe sunscreen"]
+  },
+  {
+    "id": 11,
+    "title": "Rocky Mountains Hiking",
+    "image": "https://i.ibb.co.com/Lvz0h8z/chris-hayashi-gbae-Hydpgt-E-unsplash.jpg",
+    "category": "Mountain Treks",
+    "shortDescription": "Discover the beauty of the Rockies with guided hiking tours.",
+    "adventureCost": "$500",
+    "bookingAvailability": true,
+    "location": "Canada",
+    "duration": "5 days",
+    "adventureLevel": "Intermediate",
+    "includedItems": ["Hiking Gear", "Guide", "Meals"],
+    "ecoFriendlyFeatures": ["Compost Toilets", "Solar Lighting"],
+    "maxGroupSize": 12,
+    "specialInstructions": ["Bring sturdy boots", "Stay on trails"]
+  },
+  {
+    "id": 12,
+    "title": "Yellowstone Camping Retreat",
+    "image": "https://i.ibb.co.com/n0TNjxW/denys-nevozhai-63-Znf38gn-Xk-unsplash.jpg",
+    "category": "Camping Retreats",
+    "shortDescription": "Relax and explore the wonders of Yellowstone National Park.",
+    "adventureCost": "$450",
+    "bookingAvailability": true,
+    "location": "USA",
+    "duration": "4 days",
+    "adventureLevel": "Beginner",
+    "includedItems": ["Tent", "Cooking Gear", "Park Pass"],
+    "ecoFriendlyFeatures": [
+      "Leave-No-Trace Practices",
+      "Eco-Friendly Campsites"
+    ],
+    "maxGroupSize": 8,
+    "specialInstructions": ["Keep food away from bears", "Follow park rules"]
+  }
+]
