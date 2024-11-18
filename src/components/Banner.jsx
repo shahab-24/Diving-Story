@@ -4,6 +4,7 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
 import "animate.css";
+import { Outlet } from "react-router-dom";
 
 const Banner = () => {
   const [data, setData] = useState([]);
@@ -25,7 +26,7 @@ const Banner = () => {
   }, []);
 
   return (
-    <div className="banner-container">
+    <div className="banner-container my-4 border-b-1 shadow-xl">
       <Swiper
         modules={[Autoplay]}
         autoplay={{

@@ -6,6 +6,8 @@ import Signup from "../components/Signup";
 import UpdateProfile from "../components/UpdateProfile";
 import UserProfile from "../components/UserProfile";
 import Services from "../components/Services";
+import Home from "../components/Home";
+import AdventureDetails from "../components/AdventureDetails";
 ;
 
 
@@ -15,10 +17,15 @@ const router = createBrowserRouter([
     element: <HomeLayout></HomeLayout>,
     
     children : [
-          {
-        path: "",
-        element: <Navigate to="/"></Navigate>
+      {
+        path:"/",
+        element: <Home></Home>
+
       },
+      //     {
+      //   path: "",
+      //   element: <Navigate to="/"></Navigate>
+      // },
       {
         path: "/about",
         element: <About></About>
@@ -42,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: "/services",
         element: <Services></Services>
+      },
+      {
+        path: "/adventureDetails/:id",
+        element: <AdventureDetails></AdventureDetails>
       },
      
     ]
