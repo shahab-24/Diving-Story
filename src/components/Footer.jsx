@@ -3,7 +3,7 @@ import { FaFacebook, FaLinkedin, FaTwitter, FaInstagram, FaGithub } from "react-
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white py-6 w-full">
+    <footer className="bg-gray-800 text-white py-6 w-full px-4">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
         {/* Website Name or Logo */}
         <div className="text-center md:text-left mb-4 md:mb-0">
