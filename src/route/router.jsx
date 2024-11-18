@@ -1,4 +1,4 @@
-import { createBrowserRouter, Navigate } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import HomeLayout from "../Layouts/HomeLayout";
 import About from "../components/About";
 import Login from "../components/Login";
@@ -8,61 +8,56 @@ import UserProfile from "../components/UserProfile";
 import Services from "../components/Services";
 import Home from "../components/Home";
 import AdventureDetails from "../components/AdventureDetails";
-;
-
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomeLayout></HomeLayout>,
-    
-    children : [
-      {
-        path:"/",
-        element: <Home></Home>
 
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
       },
-      //     {
-      //   path: "",
-      //   element: <Navigate to="/"></Navigate>
-      // },
       {
         path: "/about",
-        element: <About></About>
-      } ,
+        element: <About></About>,
+      },
       {
         path: "/login",
-        element: <Login></Login>
+        element: <Login></Login>,
       },
       {
         path: "/signup",
-        element: <Signup></Signup>
+        element: <Signup></Signup>,
       },
       {
         path: "/updateProfile",
-        element: <UpdateProfile></UpdateProfile>
+        element: <UpdateProfile></UpdateProfile>,
       },
       {
         path: "/userProfile",
-        element: <UserProfile></UserProfile>
+        element: <UserProfile></UserProfile>,
       },
       {
         path: "/services",
-        element: <Services></Services>
+        element: <Services></Services>,
       },
       {
         path: "/adventureDetails/:id",
-        element: <AdventureDetails></AdventureDetails>
+        element: <AdventureDetails></AdventureDetails>,
+        loader: async ({ params }) => {
+          const res = await fetch('/Adventures.json');
+          const adventures = await res.json();
+          return adventures.find((card) => card.id === parseInt(params.id));
+        },
       },
-     
-    ]
-},
-
+    ],
+  },
   {
     path: "*",
-    element: <h2> Error</h2>,
+    element: <h2>Error</h2>,
   },
 ]);
 
 export default router;
-

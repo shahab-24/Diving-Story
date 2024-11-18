@@ -1,6 +1,7 @@
 
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const AdventureExperiences = () => {
   const [data, setData] = useState([]);
@@ -8,7 +9,7 @@ const {user, setUser} = useContext(AuthContext)
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch adventures data
+  
     fetch("/Adventures.json")
       .then((res) => res.json())
       .then((data) => setData(data))
@@ -17,9 +18,9 @@ const {user, setUser} = useContext(AuthContext)
 
   const handleExploreNow = (id) => {
     if (user) {
-      navigate(`/adventureDetails/${id}`); // Navigate to Adventure Detail Page
+      navigate(`/adventureDetails/${id}`); 
     } else {
-      navigate("/login"); // Redirect to Login if not logged in
+      navigate("/login"); 
     }
   };
 
@@ -62,5 +63,5 @@ const {user, setUser} = useContext(AuthContext)
 };
 
 export default AdventureExperiences;
-import { json } from "react-router-dom";import { AuthContext } from "../Provider/AuthProvider";
+
 
