@@ -30,7 +30,7 @@ const {user, setUser} = useContext(AuthContext)
         Adventure Experiences
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {data.map((adventure) => (
+        {data.slice(0,6).map((adventure) => (
           <div key={adventure.id} className="card bg-base-100 shadow-xl">
             <figure>
               <img

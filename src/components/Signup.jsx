@@ -18,6 +18,7 @@ const Signup = () => {
       .then((result) => {
         const user = result.user;
         alert(user, "user created successfully");
+        
 
         manageUpdateProfile(name, photo);
         setUser(user);

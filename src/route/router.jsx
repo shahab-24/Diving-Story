@@ -8,6 +8,8 @@ import UserProfile from "../components/UserProfile";
 import Services from "../components/Services";
 import Home from "../components/Home";
 import AdventureDetails from "../components/AdventureDetails";
+import PrivateRoute from "../components/AdventureDetails";
+import ErrorPage from "../components/ErrorPage";
 
 const router = createBrowserRouter([
   {
@@ -45,18 +47,20 @@ const router = createBrowserRouter([
       },
       {
         path: "/adventureDetails/:id",
-        element: <AdventureDetails></AdventureDetails>,
+        element: <PrivateRoute><AdventureDetails></AdventureDetails></PrivateRoute>,
         loader: async ({ params }) => {
           const res = await fetch('/Adventures.json');
           const adventures = await res.json();
-          return adventures.find((card) => card.id === parseInt(params.id));
+          
+          const adventure = adventures.find((card) => card.id ===parseInt(params.id));
+          return adventure || null; //
         },
       },
     ],
   },
   {
     path: "*",
-    element: <h2>Error</h2>,
+    element: <ErrorPage></ErrorPage>,
   },
 ]);
 
