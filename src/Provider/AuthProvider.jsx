@@ -1,19 +1,24 @@
 import { createContext, useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
+  GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
   
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../firebase.config";
+import Swal from "sweetalert2";
 
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
+  const googleProvider = new GoogleAuthProvider();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [err, setErr] = useState('')
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -24,6 +29,30 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
+
+  const handleGoogleLogin = ()=> {
+    signInWithPopup(auth, googleProvider)
+    .then((result) =>{
+       setUser(result.user)
+       Swal.fire({
+        position: "top-center",
+        icon: "success",
+        title: `Congrats..! ${user.displayName}`,
+        showConfirmButton: false,
+        timer: 1500
+      });
+      })
+    .catch(error => {
+      setErr(error.message)
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong!",
+        footer: '<a href="#">Why do I have this issue?</a>'
+      });
+      
+    })
+  }
 
   const userLogOut = () => {
     setLoading(true);
@@ -61,7 +90,8 @@ const AuthProvider = ({ children }) => {
     userLogOut,
     loading,
     setLoading,
-    manageUpdateProfile
+    manageUpdateProfile,
+    handleGoogleLogin
 
   };
   return (
