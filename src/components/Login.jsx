@@ -1,9 +1,11 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import Swal from 'sweetalert2'
 
 const Login = () => {
   const { userLogin, setUser } = useContext(AuthContext);
+  const [err, setErr] = useState("")
   const location = useLocation()
   const navigate = useNavigate()
   const handleLogin = (e) => {
@@ -12,13 +14,20 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     
-    
+    setErr("")
     userLogin(email, password)
       .then((result) => {
         const user = result.user;
         if (user) {
           
           setUser(user);
+          Swal.fire({
+            position: "top-center",
+            icon: "success",
+            title: `Congrats..! ${user.displayName}`,
+            showConfirmButton: false,
+            timer: 1500
+          });
           navigate(location?. state ? location.state : "/")
           form.reset();
         } else {
@@ -26,9 +35,16 @@ const Login = () => {
         }
       })
       .catch((error) => {
-        const errorCode = error.code;
+        
         const errorMessage = error.message;
-        console.log(errorCode,errorMessage)
+        setErr(errorMessage)
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something went wrong!",
+          footer: '<a href="#">Why do I have this issue?</a>'
+        });
+        
       });
   };
   return (
@@ -71,6 +87,10 @@ const Login = () => {
           <p className="text-black font-semibold ">
             Dont Have Account ? please <Link to="/signup"><span className="text-purple-700  font-semibold ">Sign Up</span></Link>
           </p>
+          {
+            err && <p className="text-red-700 font-semibold">{err}</p>
+
+          }
         </form>
       </div>
     </div>
@@ -78,4 +98,5 @@ const Login = () => {
 };
 
 export default Login;
-import React from "react";
+
+
