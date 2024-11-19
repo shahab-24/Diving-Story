@@ -134,8 +134,8 @@ const Signup = () => {
               className="input input-bordered"
               required
             />
-          <button onClick={handleShowPassword} className="btn btn-sm border-none hover:bg-none w-[30%] h-[30%] bg-transparent absolute right-2 bottom-10">
-          {/* <img className=" " src="https://img.icons8.com/?size=24&id=85028&format=png" alt="" /> */}{   showPassword ?<FaEye></FaEye> :  <FaEyeSlash></FaEyeSlash>}
+          <button onClick={handleShowPassword} className=" flex items-center justify-center btn btn-sm border-none hover:bg-none bg-transparent absolute right-2 bottom-10">
+        {   showPassword ? <FaEyeSlash></FaEyeSlash>: <FaEye></FaEye> }
           </button>
             <label className="label">
               <a href="#" className="label-text-alt link link-hover text-black">

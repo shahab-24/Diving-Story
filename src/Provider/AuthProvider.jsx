@@ -6,7 +6,6 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
-  
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../firebase.config";
@@ -19,8 +18,9 @@ const AuthProvider = ({ children }) => {
   const googleProvider = new GoogleAuthProvider();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [err, setErr] = useState('')
-  
+  const [err, setErr] = useState("");
+
+
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -32,49 +32,49 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  const handleGoogleLogin = ()=> {
+  const handleGoogleLogin = () => {
     signInWithPopup(auth, googleProvider)
-    .then((result) =>{
-       setUser(result.user)
-      
-       Swal.fire({
-        position: "top-center",
-        icon: "success",
-        title: `Congrats..! ${user.displayName}`,
-        showConfirmButton: false,
-        timer: 1500
-      });
+      .then((result) => {
+        const user = result.user;
+        setUser(user);
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: `Congrats..! ${user.displayName}`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+
       })
-    .catch(error => {
-      setErr(error.message)
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Something went wrong!",
-        footer: '<a href="#">Why do I have this issue?</a>'
+      .catch((error) => {
+        setErr(error.message);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something went wrong!",
+          footer: '<a href="#">Why do I have this issue?</a>',
+        });
       });
-      
-    })
-  }
+  };
 
   const userLogOut = () => {
     setLoading(true);
     return signOut(auth)
-    .then(() => {
-      setUser(null);
-      setLoading(false);
-    })
-    .catch(err => {
-      console.log(err.message)
-    })
+      .then(() => {
+        setUser(null);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
   };
 
   const manageUpdateProfile = (name, image) => {
     return updateProfile(auth.currentUser, {
-      displayName: name, photoURL: image
-
-    })
-  }
+      displayName: name,
+      photoURL: image,
+    });
+  };
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -95,8 +95,7 @@ const AuthProvider = ({ children }) => {
     setLoading,
     manageUpdateProfile,
     handleGoogleLogin,
-    err
-
+    err,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

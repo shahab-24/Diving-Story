@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 const UserProfile = () => {
   const { user,  loading} = useContext(AuthContext);
@@ -42,12 +42,12 @@ const UserProfile = () => {
 
 
         <div className="mt-6 flex justify-center">
-          <button
+        <Link to="/updateProfile">  <button
             className="btn btn-primary w-full"
-            onClick={() => Navigate("/updateprofile")}
+          
           >
             Update Profile
-          </button>
+          </button></Link>
         </div>
       </div>
     </div>
