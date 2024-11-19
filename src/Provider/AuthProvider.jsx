@@ -11,6 +11,7 @@ import {
 } from "firebase/auth";
 import { auth } from "../firebase.config";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext();
 
@@ -19,6 +20,7 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState('')
+  
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -34,6 +36,7 @@ const AuthProvider = ({ children }) => {
     signInWithPopup(auth, googleProvider)
     .then((result) =>{
        setUser(result.user)
+      
        Swal.fire({
         position: "top-center",
         icon: "success",
@@ -91,7 +94,8 @@ const AuthProvider = ({ children }) => {
     loading,
     setLoading,
     manageUpdateProfile,
-    handleGoogleLogin
+    handleGoogleLogin,
+    err
 
   };
   return (
