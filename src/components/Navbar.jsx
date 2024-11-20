@@ -61,22 +61,22 @@ const Navbar = () => {
             </ul>
           </div>
         <div className="hidden lg:flex items-center justify-start">
-        <img className="w-[20%] h-[20%] rounded-xl px-4" src={logo} alt="" />
-        <a className=" text-2xl">Diving Story<small className="flex items-center">Eco Adventures</small></a>
+        <img className="w-[10%] h-[10%] rounded-xl px-4" src={logo} alt="" />
+        <a className=" text-2xl opacity-55">Diving Story<small className="flex items-center text-sm">Eco Adventures</small></a>
         </div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
-        <div className="">
+        <div className=" border-2 border-red-700">
           {
-            user && user?.email ?<div className="flex items-center gap-2 justify-end" title={user.displayName}>
+            user && user?.email ?<div className="flex items-center gap-2 justify-end lg:justify-end" title={user.displayName}>
             
             <img className="w-[20%] lg:w-[30%] h-[10%] rounded-xl border-1 border-cyan-500 btn-outline" src={user.photoURL} alt="" />
       
               
                <button onClick={userLogOut} className="btn btn-outline">Logout</button>
-            </div> : <NavLink to='/login' className="btn btn-outline">Login</NavLink>
+            </div> : <NavLink to='/login' className="btn btn-outline sm:justify-end">Login</NavLink>
           }
           
         </div>

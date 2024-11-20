@@ -64,7 +64,7 @@ const Login = () => {
 
   return (
     <div
-      className="w-11/12 mx-auto h-[650px] mt-4 flex justify-center items-center py-10"
+      className="w-11/12 mx-auto h-[670px] mt-4 flex justify-center items-center py-10"
       style={{
         backgroundImage: "url('https://i.ibb.co.com/6R51DRP/marldive-water-2.jpg')",
         backgroundSize: "cover",
@@ -134,17 +134,13 @@ const Login = () => {
           <p className="text-black font-semibold">
             Don't Have an Account? Please{" "}
             <Link to="/signup">
-              <button className="btn btn-primary">
+              <button className="btn btn-primary btn-sm mb-2">
                 <span className="text-purple-700 font-semibold">Sign Up</span>
               </button>
-            </Link>
-          </p>
-          {err && <p className="text-red-700 font-semibold">{err}</p>}
-        </form>
-        <div className="flex justify-between items-center">
-          <div className="flex">
+              <div className="flex justify-center lg:justify-between items-center flex-col lg:flex-row gap-2">
+          <div className="flex ">
             <button
-              className="btn btn-outline btn-sm flex text-black"
+              className="btn btn-outline btn-xs flex text-black"
               onClick={handleGoogleLogin}
             >
               Login with GOOGLE
@@ -155,8 +151,8 @@ const Login = () => {
               />
             </button>
           </div>
-          <div className="flex">
-            <button className="btn flex btn-outline btn-sm text-black">
+          <div className="flex my-2">
+            <button className="btn btn-outline btn-xs text-black">
               Login with GITHUB
               <img
                 className="w-[10%]"
@@ -166,6 +162,11 @@ const Login = () => {
             </button>
           </div>
         </div>
+            </Link>
+          </p>
+          {err && <p className="text-red-700 font-semibold">{err}</p>}
+        </form>
+      
       </div>
     </div>
   );
