@@ -22,7 +22,7 @@ const Banner = () => {
       <Swiper
         modules={[Autoplay]}
         autoplay={{
-          delay: 1000,
+          delay: 3000,
           disableOnInteraction: false,
         }}
         loop

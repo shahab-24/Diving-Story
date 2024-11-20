@@ -1,51 +1,41 @@
-import React, { useState, useEffect, useContext } from "react";
+import  { useState, useEffect, useContext } from "react";
 import {
-  Navigate,
+  
   useLoaderData,
   useNavigate,
   useParams,
 } from "react-router-dom";
-import AOS, { init } from "aos";
+import AOS from "aos";
 import "aos/dist/aos.css";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const AdventureDetails = () => {
-  const [loading, setLoading] = useState(true);
   const { user } = useContext(AuthContext);
-  console.log(user)
-
   const { id } = useParams();
   const adventure = useLoaderData();
-
+  console.log(adventure,user, id)
   const navigate = useNavigate();
-
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     AOS.init();
-    // if (!adventure) {
-    //   navigate("/");
+    if (!user) {
+      navigate("/");
+    }
+  }, [user, navigate]);
+  
 
-    // } else {
-    //   setLoading(false);
-    // }
-  }, []);
-
-  // if (loading) {
-  //   return (
-  //     <div className="flex justify-center items-center min-h-screen">
-  //       <div className="w-16 h-16 border-8 border-t-transparent border-blue-500 rounded-full animate-spin"></div>
-  //     </div>
-  //   );
-  // }
-
-  if(!user){
-    return navigate("/")
+  
+  if (!adventure) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <div className="w-16 h-16 border-8 border-t-transparent border-blue-500 rounded-full animate-spin"></div>
+      </div>
+    ); 
   }
 
   const handleTalkWithExpert = () => {
     const currentHour = new Date().getHours();
-
     if (currentHour >= 10 && currentHour <= 20) {
       window.open("https://meet.google.com/", "_blank");
     } else {
@@ -56,7 +46,7 @@ const AdventureDetails = () => {
   return (
     <div className="container mx-auto mt-20 p-5" data-aos="fade-up">
       <div
-        className="card w-[80%]  bg-base-100 shadow-xl mx-auto"
+        className="card w-[80%] bg-base-100 shadow-xl mx-auto"
         data-aos="zoom-in"
       >
         <figure>
@@ -92,21 +82,20 @@ const AdventureDetails = () => {
           <div className="flex justify-around">
             <div className="text-start">
               <p>Features: </p>
-              {adventure.ecoFriendlyFeatures.map((item) => (
-                <li>{item}</li>
+              {adventure.ecoFriendlyFeatures.map((item, index) => (
+                <li key={index}>{item}</li>
               ))}
             </div>
             <div className="text-start">
               <p>Included items: </p>
-              {adventure.includedItems.map((item) => (
-                <li>{item}</li>
+              {adventure.includedItems.map((item, index) => (
+                <li key={index}>{item}</li>
               ))}
             </div>
-
             <div>
-              <p>special Instructions: </p>
-              {adventure.specialInstructions.map((item) => (
-                <li>{item}</li>
+              <p>Special Instructions: </p>
+              {adventure.specialInstructions.map((item, index) => (
+                <li key={index}>{item}</li>
               ))}
             </div>
           </div>

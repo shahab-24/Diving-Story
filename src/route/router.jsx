@@ -10,6 +10,7 @@ import Home from "../components/Home";
 import AdventureDetails from "../components/AdventureDetails";
 import PrivateRoute from "../components/AdventureDetails";
 import ErrorPage from "../components/ErrorPage";
+import Gallery from "../components/Gallery";
 
 const router = createBrowserRouter([
   {
@@ -39,29 +40,35 @@ const router = createBrowserRouter([
       },
       {
         path: "/userProfile",
-        element: <UserProfile></UserProfile>,
+        element: <PrivateRoute><UserProfile></UserProfile></PrivateRoute>,
       },
+    
       {
         path: "/services",
         element: <Services></Services>,
       },
       {
-        path: "/adventureDetails/:id",
-        element: <PrivateRoute><AdventureDetails></AdventureDetails></PrivateRoute>,
-        loader: async ({ params }) => {
-          const res = await fetch('/Adventures.json');
-          const adventures = await res.json();
-          
-          const adventure = adventures.find((card) => card.id ===parseInt(params.id));
-          return adventure || null; //
-        },
+        path: "/gallery",
+        element: <Gallery></Gallery>,
       },
+      // {
+      //   path: "/adventureDetails/:id",
+      //   element: <PrivateRoute><AdventureDetails></AdventureDetails></PrivateRoute>,
+      //   loader: async ({ params }) => {
+      //     const res = await fetch('/Adventures.json');
+      //     const adventures = await res.json();
+          
+      //     const adventure = adventures.find((card) => card.id === parseInt(params.id));
+      //     return adventure || null; 
+      //   },
+      // },
     ],
   },
   {
     path: "*",
     element: <ErrorPage></ErrorPage>,
   },
+
 ]);
 
 export default router;

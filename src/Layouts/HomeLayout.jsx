@@ -12,13 +12,15 @@ const HomeLayout = () => {
   useEffect(() => {
     
     const titles = {
-      "/": "Home - Your Website",
+      "/": "Home - Diving Story",
       "/about": "About Us - Diving Story",
       "/login": "Login - Diving Story",
       "/signup": "Signup - Diving Story",
       "/userProfile" : "Profile -  Diving Story",
       "/updateProfile" :  "Update Profile -  Diving Story",
-      "/services" :  "Services -  Diving Story"
+      "/services" :  "Services -  Diving Story",
+      "/adventureDetails" :  "AdventureDetails -  Diving Story",
+      "/gallery" :  "Gallery -  Diving Story"
     
       
     };

@@ -70,5 +70,5 @@ const UpdateProfile = () => {
 };
 
 export default UpdateProfile;
-import React from "react";import Swal from "sweetalert2";
+
 

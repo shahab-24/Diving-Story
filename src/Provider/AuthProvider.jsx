@@ -10,9 +10,8 @@ import {
 } from "firebase/auth";
 import { auth } from "../firebase.config";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
 
-export const AuthContext = createContext();
+export const AuthContext = createContext({});
 
 const AuthProvider = ({ children }) => {
   const googleProvider = new GoogleAuthProvider();
@@ -33,6 +32,7 @@ const AuthProvider = ({ children }) => {
   };
 
   const handleGoogleLogin = () => {
+    setLoading(true)
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         const user = result.user;
@@ -62,7 +62,7 @@ const AuthProvider = ({ children }) => {
     return signOut(auth)
       .then(() => {
         setUser(null);
-        setLoading(false);
+        
       })
       .catch((err) => {
         console.log(err.message);
@@ -81,7 +81,7 @@ const AuthProvider = ({ children }) => {
       setLoading(false);
     });
     return () => {
-      unSubscribe();
+       return unSubscribe();
     };
   }, []);
 

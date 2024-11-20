@@ -9,3 +9,15 @@ a.active {
   font-size: larger;
   color: blueviolet;
 }
+
+@layer utilities {
+  .group-hover\:scale-110 {
+    transform: scale(1.1);
+  }
+  .transition-transform {
+    transition: transform 0.3s ease-in-out;
+  }
+  .transition-opacity {
+    transition: opacity 0.3s ease-in-out;
+  }
+}
