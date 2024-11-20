@@ -46,14 +46,14 @@ const AdventureDetails = () => {
   return (
     <div className="container mx-auto mt-20 p-5" data-aos="fade-up">
       <div
-        className="card w-[80%] bg-base-100 shadow-xl mx-auto"
+        className="card w-[80%] h-[100%] bg-base-100 shadow-xl mx-auto"
         data-aos="zoom-in"
       >
         <figure>
           <img
             src={adventure.image}
             alt={adventure.name}
-            className="w-full min-h-96 object-cover"
+            className="w-full h-[550px] object-cover"
           />
         </figure>
         <div className="card-body">

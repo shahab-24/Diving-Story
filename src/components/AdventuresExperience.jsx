@@ -12,9 +12,10 @@ const AdventureExperiences = () => {
   // Initialize AOS
   useEffect(() => {
     AOS.init({
-      duration: 2000, // Animation duration
-      easing: "ease-in-out", // Easing effect
-      offset: 100, // Offset from viewport
+      duration: 1500, // Animation duration in ms
+      easing: "ease-in-out", // Smooth easing effect
+      offset: 100, // Trigger animations 100px before the element is visible
+      once: false, // Allow animations to trigger multiple times
     });
   }, []);
 
@@ -43,7 +44,8 @@ const AdventureExperiences = () => {
           <div
             key={adventure.id}
             className="card bg-base-100 shadow-xl"
-            data-aos="fade-left" // Floating and zooming from left
+            data-aos="zoom-in-left" // Zoom in from left corner
+            data-aos-anchor-placement="top-bottom" // Anchor animations
           >
             <figure className="relative overflow-hidden">
               <img
