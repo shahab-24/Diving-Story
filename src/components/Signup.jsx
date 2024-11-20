@@ -1,8 +1,10 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css"; 
 
 const Signup = () => {
   const { createUser, setUser, manageUpdateProfile } = useContext(AuthContext);
@@ -10,10 +12,15 @@ const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
-  const handleSignup = (e) => {
-    e.preventDefault(); // Prevent page reload
+  
+  useEffect(() => {
+    AOS.init({ duration: 2000, offset: 50 }); 
+  }, []);
 
-    const form = e.target; // Get the form element
+  const handleSignup = (e) => {
+    e.preventDefault(); 
+
+    const form = e.target; 
     const name = form.name.value;
     const email = form.email.value;
     const photo = form.photo.value;
@@ -21,7 +28,7 @@ const Signup = () => {
 
     console.log(name, email, photo, password);
 
-    // Password validation regex
+    
     const passwordRegex =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
 
@@ -29,10 +36,10 @@ const Signup = () => {
       setErr(
         "Password must be at least 6 characters, include uppercase, lowercase, number, and a special character."
       );
-      return; // Stop further execution
+      return; 
     }
 
-    // Reset the error if validation passes
+    
     setErr("");
 
     createUser(email, password)
@@ -67,8 +74,19 @@ const Signup = () => {
   };
 
   return (
-    <div className="w-11/12 mx-auto bg-[url('https://i.ibb.co.com/6R51DRP/marldive-water-2.jpg')] flex justify-center items-center h-[750px] object-cover">
-      <div className="card opacity-80 py-4 h-auto transparent max-w-lg w-full shrink-0 shadow-2xl p-6 mb-6">
+    <div
+      className="w-11/12 mx-auto flex justify-center items-center h-[750px]"
+      style={{
+        backgroundImage: "url('https://i.ibb.co.com/6R51DRP/marldive-water-2.jpg')",
+        backgroundSize: "cover",
+      }}
+    >
+      <div
+        className="card opacity-80 py-4 h-auto transparent max-w-lg w-full shrink-0 shadow-2xl p-6 mb-6"
+        data-aos="fade-down"
+        data-aos-easing="ease-out-cubic" 
+        data-aos-anchor-placement="top-center" 
+      >
         <h2 className="font-bold text-center text-purple-700 text-3xl">
           Sign Up to your Account
         </h2>

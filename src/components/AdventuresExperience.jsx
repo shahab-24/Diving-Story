@@ -1,15 +1,24 @@
-
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import AOS from "aos";
+import "aos/dist/aos.css"; // Import AOS styles
 
 const AdventureExperiences = () => {
   const [data, setData] = useState([]);
-const {user, setUser} = useContext(AuthContext)
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
+  // Initialize AOS
   useEffect(() => {
-  
+    AOS.init({
+      duration: 2000, // Animation duration
+      easing: "ease-in-out", // Easing effect
+      offset: 100, // Offset from viewport
+    });
+  }, []);
+
+  useEffect(() => {
     fetch("/Adventures.json")
       .then((res) => res.json())
       .then((data) => setData(data))
@@ -18,9 +27,9 @@ const {user, setUser} = useContext(AuthContext)
 
   const handleExploreNow = (id) => {
     if (user) {
-      navigate(`/adventureDetails/${id}`); 
+      navigate(`/adventureDetails/${id}`);
     } else {
-      navigate("/login"); 
+      navigate("/login");
     }
   };
 
@@ -30,13 +39,17 @@ const {user, setUser} = useContext(AuthContext)
         Adventure Experiences
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {data.slice(0,6).map((adventure) => (
-          <div key={adventure.id} className="card bg-base-100 shadow-xl">
-            <figure>
+        {data.slice(0, 6).map((adventure) => (
+          <div
+            key={adventure.id}
+            className="card bg-base-100 shadow-xl"
+            data-aos="fade-left" // Floating and zooming from left
+          >
+            <figure className="relative overflow-hidden">
               <img
                 src={adventure.image}
                 alt={adventure.title}
-                className="w-full h-52 object-cover"
+                className="w-full h-52 object-cover transform hover:scale-105 transition-transform duration-500"
               />
             </figure>
             <div className="card-body">
@@ -63,5 +76,3 @@ const {user, setUser} = useContext(AuthContext)
 };
 
 export default AdventureExperiences;
-
-

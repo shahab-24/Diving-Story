@@ -1,11 +1,19 @@
 import { useEffect, useState } from "react";
-import "animate.css";
+import "aos/dist/aos.css";
+import AOS from "aos";
 
 const Gallery = () => {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
-    // Fetch images from JSON data
+    
+    AOS.init({
+      duration: 1800, 
+      easing: "ease-in-out",
+      once: true, 
+    });
+
+    
     fetch("/Adventures.json")
       .then((res) => res.json())
       .then((data) => {
@@ -14,26 +22,29 @@ const Gallery = () => {
           title: adventure.title,
           image: adventure.image,
         }));
-        setImages(allImages);
+      
+        setImages([...allImages, ...allImages]);
       })
       .catch((error) => console.error("Error fetching images:", error));
   }, []);
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="relative overflow-hidden bg-gray-100 py-8 min-h-screen">
       <h1 className="text-3xl font-bold text-center mb-8">Adventure Gallery</h1>
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="gallery-container flex gap-8">
         {images.map((img, index) => (
           <div
-            key={img.id}
-            className={`relative group rounded-lg shadow-lg overflow-hidden animate__animated animate__fadeIn ${
-              index % 2 === 0 ? "h-48" : "h-64"
+            key={`${img.id}-${index}`} 
+            data-aos="zoom-out"
+            data-aos-delay={`${index * 200}`} 
+            className={`relative group rounded-lg shadow-lg overflow-hidden animate-floating animate__zoomOut ${
+              index % 2 === 0 ? "w-60 h-40" : "w-40 h-60"
             }`}
           >
             <img
               src={img.image}
               alt={img.title}
-              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-125 group-hover:z-10"
             />
             <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
               <p className="text-white text-lg font-semibold">{img.title}</p>

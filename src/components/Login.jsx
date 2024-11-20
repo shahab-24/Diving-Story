@@ -1,13 +1,24 @@
-import { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import AOS from "aos";
+import "aos/dist/aos.css"; 
+import { FaEyeSlash, FaEye } from "react-icons/fa";
 
 const Login = () => {
   const { userLogin, setUser, handleGoogleLogin } = useContext(AuthContext);
   const [err, setErr] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
+
+  
+  useEffect(() => {
+    AOS.init({ duration: 2000, offset: 50 }); 
+  }, []);
+
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -44,9 +55,25 @@ const Login = () => {
         });
       });
   };
+
+
+  
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
-    <div className="w-11/12 mx-auto h-[650px] mt-4 bg-[url('https://i.ibb.co.com/6R51DRP/marldive-water-2.jpg')] flex justify-center items-center py-10">
-      <div className="card opacity-60 bg-gray-200 py-10 h-[600px] transparent max-w-lg w-full shrink-0 shadow-2xl p-10 my-4">
+    <div
+      className="w-11/12 mx-auto h-[650px] mt-4 flex justify-center items-center py-10"
+      style={{
+        backgroundImage: "url('https://i.ibb.co.com/6R51DRP/marldive-water-2.jpg')",
+        backgroundSize: "cover",
+      }}
+    >
+      <div
+        className="card opacity-8 py-10 h-[600px] transparent max-w-lg w-full shrink-0 shadow-2xl p-10 my-4"
+        data-aos="zoom-in" 
+      >
         <h2 className="font-bold text-center text-purple-700 text-3xl">
           Login to your Account
         </h2>
@@ -62,51 +89,64 @@ const Login = () => {
               placeholder="email"
               className="input input-bordered"
               name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>
-          <div className="form-control">
+          <div className="form-control relative">
             <label className="label">
               <span className="label-text text-purple-700 text-xl font-semibold ">
                 Password
               </span>
             </label>
             <input
-              type="password"
+                          type={showPassword ? "text" : "password"}
+
               placeholder="password"
               className="input input-bordered text-black"
               name="password"
               required
             />
+              
+            <button
+              type="button"
+              onClick={handleShowPassword}
+              className="flex items-center justify-center btn btn-sm border-none hover:bg-none bg-transparent absolute right-2 bottom-16 text-white"
+            >
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </button>
             <label className="label">
-              <a
-                href="#"
-                className="label-text-alt link link-hover text-purple-700  font-semibold "
-              >
-                Forgot password?
-              </a>
+             <div className="mt-4 text-center text-black">
+          <Link
+            to="/forgotPassword"
+            state={{ email }} 
+            className="text-black hover:underline"
+          >
+            Forgot Password?
+          </Link>
+        </div>
             </label>
           </div>
           <div className="form-control mt-6">
             <button className="btn btn-primary">Login</button>
           </div>
-          <p className="text-black font-semibold ">
-            Dont Have Account ? please{" "}
+          <p className="text-black font-semibold">
+            Don't Have an Account? Please{" "}
             <Link to="/signup">
               <button className="btn btn-primary">
-                <span className="text-purple-700  font-semibold ">Sign Up</span>
+                <span className="text-purple-700 font-semibold">Sign Up</span>
               </button>
             </Link>
           </p>
           {err && <p className="text-red-700 font-semibold">{err}</p>}
         </form>
         <div className="flex justify-between items-center">
-          <div className="flex ">
+          <div className="flex">
             <button
               className="btn btn-outline btn-sm flex text-black"
               onClick={handleGoogleLogin}
             >
-              {" "}
               Login with GOOGLE
               <img
                 className="w-[10%]"
@@ -115,7 +155,6 @@ const Login = () => {
               />
             </button>
           </div>
-
           <div className="flex">
             <button className="btn flex btn-outline btn-sm text-black">
               Login with GITHUB

@@ -8,9 +8,10 @@ import UserProfile from "../components/UserProfile";
 import Services from "../components/Services";
 import Home from "../components/Home";
 import AdventureDetails from "../components/AdventureDetails";
-import PrivateRoute from "../components/AdventureDetails";
 import ErrorPage from "../components/ErrorPage";
 import Gallery from "../components/Gallery";
+import PrivateRoute from "../components/PrivateRoute";
+import ForgotPassword from "../components/ForgotPassword";
 
 const router = createBrowserRouter([
   {
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/updateProfile",
-        element: <UpdateProfile></UpdateProfile>,
+        element: <PrivateRoute><UpdateProfile></UpdateProfile></PrivateRoute>,
       },
       {
         path: "/userProfile",
@@ -51,17 +52,21 @@ const router = createBrowserRouter([
         path: "/gallery",
         element: <Gallery></Gallery>,
       },
-      // {
-      //   path: "/adventureDetails/:id",
-      //   element: <PrivateRoute><AdventureDetails></AdventureDetails></PrivateRoute>,
-      //   loader: async ({ params }) => {
-      //     const res = await fetch('/Adventures.json');
-      //     const adventures = await res.json();
+      {
+        path: "/forgotPassword",
+        element: <ForgotPassword></ForgotPassword>,
+      },
+      {
+        path: "/adventureDetails/:id",
+        element: <PrivateRoute><AdventureDetails></AdventureDetails></PrivateRoute>,
+        loader: async ({ params }) => {
+          const res = await fetch('/Adventures.json');
+          const adventures = await res.json();
           
-      //     const adventure = adventures.find((card) => card.id === parseInt(params.id));
-      //     return adventure || null; 
-      //   },
-      // },
+          const adventure = adventures.find((card) => card.id === parseInt(params.id));
+          return adventure || null; 
+        },
+      },
     ],
   },
   {

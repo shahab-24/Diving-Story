@@ -42,7 +42,7 @@ const Banner = () => {
                 className="w-full h-full object-cover rounded-lg"
               />
               <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center">
-                <h2 className="text-4xl font-bold text-secondary animate__animated animate-bounce animate__delay-1s">
+                <h2 className="text-4xl font-bold text-secondary animate__animated animate__bounceInDown animate__delay-1s">
                   {adventure.title}
                 </h2>
 
