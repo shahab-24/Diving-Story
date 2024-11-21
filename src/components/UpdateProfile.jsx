@@ -1,6 +1,8 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import "animate.css"; 
+import Swal from "sweetalert2";
 
 const UpdateProfile = () => {
   const { user, manageUpdateProfile } = useContext(AuthContext);
@@ -20,7 +22,7 @@ const UpdateProfile = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        navigate("/userProfile"); 
+        navigate("/userProfile");
       })
       .catch((error) => {
         console.error("Error updating profile:", error);
@@ -30,9 +32,10 @@ const UpdateProfile = () => {
 
   return (
     <div className="container mx-auto flex justify-center items-center min-h-screen">
+      {/* Apply animation classes to the form */}
       <form
         onSubmit={handleUpdate}
-        className="card w-full max-w-md bg-base-100 shadow-xl p-5"
+        className="card w-full max-w-md bg-base-100 shadow-xl p-5 animate__animated animate__fadeInBottomLeft animate__slow"
       >
         <h2 className="text-2xl font-bold text-center mb-5">Update Profile</h2>
         <div className="form-control mb-4">
@@ -70,5 +73,3 @@ const UpdateProfile = () => {
 };
 
 export default UpdateProfile;
-
-

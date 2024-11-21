@@ -13,7 +13,7 @@ const AdventureDetails = () => {
   const { user } = useContext(AuthContext);
   const { id } = useParams();
   const adventure = useLoaderData();
-  console.log(adventure,user, id)
+  // console.log(adventure,user, id)
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
 

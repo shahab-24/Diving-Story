@@ -1,17 +1,13 @@
 import { useEffect, useState } from "react";
 import "aos/dist/aos.css";
-import AOS from "aos";
+
 
 const Gallery = () => {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
     
-    AOS.init({
-      duration: 1800, 
-      easing: "ease-in-out",
-      once: true, 
-    });
+  
 
     
     fetch("/Adventures.json")
@@ -35,9 +31,9 @@ const Gallery = () => {
         {images.map((img, index) => (
           <div
             key={`${img.id}-${index}`} 
-            data-aos="zoom-out"
-            data-aos-delay={`${index * 200}`} 
-            className={`relative group rounded-lg shadow-lg overflow-hidden animate-floating animate__zoomOut ${
+    
+            
+            className={`relative group rounded-lg shadow-lg overflow-hidden  animate__animated animate-floating animat__slow  ${
               index % 2 === 0 ? "w-60 h-40" : "w-40 h-60"
             }`}
           >

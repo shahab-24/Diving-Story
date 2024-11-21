@@ -1,16 +1,20 @@
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+import "aos/dist/aos.css";
 
 const UserProfile = () => {
-  const { user, loading } = useContext(AuthContext);
-  console.log(user)
+  const { user } = useContext(AuthContext);
+
   
   
 
   return (
-    <div className="container mx-auto flex justify-center items-center min-h-screen">
-      <div className="card w-full max-w-md bg-base-100 shadow-xl p-5">
+    <div className="container mx-auto flex justify-center items-center min-h-screen  animate__animated  animate__fadeInBottomRight animate__slow shadow-2xl  rounded-xl">
+      <div
+      
+      >
         <h1 className="text-3xl font-bold text-center mb-5">
           Welcome, <span className="text-blue-500">{user.displayName}</span>!
         </h1>
@@ -18,7 +22,7 @@ const UserProfile = () => {
           <img
             src={user.photoURL}
             alt="User Profile"
-            className="w-32 h-32 rounded-full border-4 border-blue-500 shadow-md"
+            className="w-72 h-72 rounded-full border-4 border-blue-500 shadow-md"
           />
           <div className="mt-4 text-center">
             <p className="text-lg font-semibold">Name: {user.displayName}</p>

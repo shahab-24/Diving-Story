@@ -3,15 +3,15 @@ import { FaFacebook, FaLinkedin, FaTwitter, FaInstagram, FaGithub } from "react-
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white py-6 w-full px-4 mt-20">
+    <footer className="bg-gray-800 text-white py-6 w-full px-4 mt-20 border-t-2  border-gray-400 border-opacity-55">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
-        {/* Website Name or Logo */}
+      
         <div className="text-center md:text-left mb-4 md:mb-0">
         <a className=" text-2xl">Diving Story<small className="flex items-center">Eco Adventures</small></a>
           <p>Explore eco-friendly travel adventures.</p>
         </div>
 
-        {/* Social Media Links */}
+        
         <div className="flex space-x-4">
           <a
             href="https://www.facebook.com/shawonctg22/"

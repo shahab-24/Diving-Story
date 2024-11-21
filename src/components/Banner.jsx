@@ -18,7 +18,7 @@ const Banner = () => {
   }, []);
 
   return (
-    <div className="banner-container my-4 border-b-1 shadow-xl">
+    <div className="banner-container my-4 shadow-xl">
       <Swiper
         modules={[Autoplay]}
         autoplay={{
@@ -49,7 +49,7 @@ const Banner = () => {
                 <p className="mt-4 text-lg max-w-2xl opacity-55">
                   {adventure.shortDescription}
                 </p>
-                <button className="mt-10 px-6 py-3 bg-secondary bg-transparent text-white text-xl font-semibold rounded-full shadow-lg hover:bg-yellow-400 opacity-55">
+                <button className="mt-10 px-6 py-3 bg-secondary bg-transparent text-white text-xl font-semibold rounded-full shadow-lg animate__animated animate__pulse animate__infinite hover:bg-yellow-400 opacity-55">
                   Explore Now
                 </button>
               </div>
