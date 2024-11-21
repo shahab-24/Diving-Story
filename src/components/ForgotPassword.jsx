@@ -31,7 +31,7 @@ const ForgotPassword = () => {
 
   return (
     <div
-      className={`flex flex-col items-center justify-center min-h-screen bg-gray-100 ${
+      className={`flex flex-col pt-20 my-24 items-center justify-center min-h-screen bg-gray-100 ${
         fadeOut ? "animate__animated animate__fadeOut" : "animate__animated animate__bounceInDown animate__delay-2s  bg-gray-400"
       }`}
     >

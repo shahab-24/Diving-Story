@@ -11,7 +11,7 @@ const UserProfile = () => {
   
 
   return (
-    <div className="container mx-auto flex justify-center items-center min-h-screen  animate__animated  animate__fadeInBottomRight animate__slow shadow-2xl  rounded-xl">
+    <div className="container mx-auto flex justify-center items-center min-h-screen  animate__animated  animate__fadeInBottomRight animate__slow shadow-2xl  rounded-xl pt-16 mt-10">
       <div
       
       >

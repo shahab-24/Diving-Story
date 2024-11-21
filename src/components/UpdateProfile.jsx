@@ -31,8 +31,8 @@ const UpdateProfile = () => {
   };
 
   return (
-    <div className="container mx-auto flex justify-center items-center min-h-screen">
-      {/* Apply animation classes to the form */}
+    <div className="container mx-auto flex justify-center items-center min-h-screen pt-16 mt-10">
+
       <form
         onSubmit={handleUpdate}
         className="card w-full max-w-md bg-base-100 shadow-xl p-5 animate__animated animate__fadeInBottomLeft animate__slow"

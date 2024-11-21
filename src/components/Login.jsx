@@ -137,6 +137,7 @@ const Login = () => {
               <button className="btn btn-primary btn-sm mb-2">
                 <span className="text-purple-700 font-semibold">Sign Up</span>
               </button>
+              
               <div className="flex justify-center lg:justify-between items-center flex-col lg:flex-row gap-2">
           <div className="flex ">
             <button
@@ -151,6 +152,8 @@ const Login = () => {
               />
             </button>
           </div>
+
+
           <div className="flex my-2">
             <button className="btn btn-outline btn-xs text-black">
               Login with GITHUB

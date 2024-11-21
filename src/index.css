@@ -11,26 +11,6 @@ a.active {
 }
 
 
-
-@keyframes scroll-horizontal {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.gallery-container {
-  display: flex;
-  animation: scroll-horizontal 15s linear infinite; 
-  width: 200%; 
-}
-
-.gallery-container > * {
-  flex-shrink: 0; 
-}
-
 @keyframes floating {
   0% {
     transform: translateY(0);
@@ -43,6 +23,6 @@ a.active {
   }
 }
 
-.animate-floating {
-  animation: floating 6s ease-in-out infinite; 
+.floating {
+  animation: floating 4s ease-in-out infinite; 
 }

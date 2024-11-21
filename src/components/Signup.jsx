@@ -7,7 +7,7 @@ import AOS from "aos";
 import "aos/dist/aos.css"; 
 
 const Signup = () => {
-  const { createUser, setUser, manageUpdateProfile } = useContext(AuthContext);
+  const { createUser, setUser, manageUpdateProfile,handleGoogleLogin } = useContext(AuthContext);
   const [err, setErr] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
@@ -75,7 +75,7 @@ const Signup = () => {
 
   return (
     <div
-      className="w-11/12 mx-auto flex justify-center items-center h-[750px]"
+      className="w-11/12 mt-40 pt-20 mx-auto flex justify-center items-center h-[780px]"
       style={{
         backgroundImage: "url('https://i.ibb.co.com/6R51DRP/marldive-water-2.jpg')",
         backgroundSize: "cover",
@@ -155,11 +155,7 @@ const Signup = () => {
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </button>
 
-            <label className="label mt-6">
-              <a href="#" className="label-text-alt link link-hover text-black">
-                Forgot password?
-              </a>
-            </label>
+          
           </div>
 
           <div className="form-control mt-4">
@@ -185,7 +181,36 @@ const Signup = () => {
             </p>
           )}
         </form>
+        <div className="flex justify-center lg:justify-between items-center flex-col lg:flex-row gap-2">
+          <div className="flex ">
+            <button
+              className="btn btn-outline btn-xs flex text-black"
+              onClick={handleGoogleLogin}
+            >
+              Login with GOOGLE
+              <img
+                className="w-[10%]"
+                src="https://img.icons8.com/?size=48&id=17949&format=png"
+                alt=""
+              />
+            </button>
+          </div>
+
+
+          <div className="flex my-2">
+            <button className="btn btn-outline btn-xs text-black">
+              Login with GITHUB
+              <img
+                className="w-[10%]"
+                src="https://img.icons8.com/?size=50&id=12598&format=png"
+                alt=""
+              />
+            </button>
+          </div>
+        </div>
       </div>
+      
+      
     </div>
   );
 };
