@@ -30,7 +30,7 @@ const Footer = () => {
             <FaLinkedin />
           </a>
           <a
-            href="https://twitter.com/yourprofile"
+            href="https://x.com/SHAHAB_UDDIN_24"
             target="_blank"
             rel="noopener noreferrer"
             className="text-xl hover:text-blue-400"

@@ -25,7 +25,7 @@ const HomeLayout = () => {
   return (
     <div className="font-poppins overflow-hidden"> 
       <Navbar />
-      <div className="my-20">
+      <div className="my-20 py-20 min-h-screen">
         <Outlet />
       </div>
       <Footer />

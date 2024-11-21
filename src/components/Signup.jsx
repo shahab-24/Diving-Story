@@ -60,12 +60,13 @@ const Signup = () => {
       })
       .catch((error) => {
         console.error(error.message);
-        setErr(error.message);
         Swal.fire({
           icon: "error",
           title: "Signup Failed",
           text: error.message,
         });
+        setErr(error.message);
+
       });
   };
 
@@ -150,7 +151,7 @@ const Signup = () => {
             <button
               type="button"
               onClick={handleShowPassword}
-              className="flex items-center justify-center btn btn-sm border-none hover:bg-none bg-transparent absolute right-2 bottom-16"
+              className="absolute flex items-center justify-center btn btn-sm btn-outline hover:bg-none bg-transparent right-4 top-14"
             >
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </button>
