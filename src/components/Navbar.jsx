@@ -54,7 +54,7 @@ const Navbar = () => {
   );
 
   return (
-    <div data-aos="fade-down" className="navbar bg-base-100 shadow-xl border-b-2  border-gray-400 border-opacity-55 py-4 my-6">
+    <div data-aos="fade-down" className="navbar bg-base-100 shadow-xl border-b-2  border-gray-400 border-opacity-55 py-4 my-6 w-[100%] mx-auto">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

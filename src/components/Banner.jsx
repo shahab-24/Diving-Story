@@ -27,19 +27,19 @@ const Banner = () => {
         }}
         loop
         slidesPerView={1}
-        className="h-[650px]"
+        className="h-[600px]"
       >
         {data.map((adventure, index) => (
           <SwiperSlide key={adventure.id} className="relative">
             <div
-              className={`absolute inset-0 flex justify-center items-center text-white text-center ${
+              className={`absolute inset-0 flex justify-center items-center text-white  w-[90%] border-2 border-gray-500 shadow-2xl text-center mx-auto ${
                 index % 2 === 0 ? "animate__zoomInLeft" : "animate__zoomInRight"
               }`}
             >
               <img
                 src={adventure.image}
                 alt={adventure.title}
-                className="w-full h-full object-cover rounded-lg"
+                className="w-[100%] h-full object-cover rounded-lg"
               />
               <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center">
                 <h2 className="text-4xl font-bold text-secondary animate__animated animate__bounceInDown animate__delay-1s">
